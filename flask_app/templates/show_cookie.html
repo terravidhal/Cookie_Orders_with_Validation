@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- linking a css Boostrap -->
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+  crossorigin="anonymous"
+/>
+<!-- linking a css style sheet -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>show cookie {{Cookie.id}}</title>
+</head>
+<body>
+    <div class="top-title">
+        <h1>Cookie {{Cookie.id}}</h1>
+        <a href="/cookies">Show All Cookies</a> 
+    </div>
+    <div class="contain">
+        <p>User Name : {{ Cookie.name }}</p>
+        <p>Cookie Type : {{Cookie.type}}</p>
+        <p>Number of Boxes : {{Cookie.num_of_boxes}}</p>
+        <p>Created On : {{Cookie.created_at}}</p> 
+        <p>Last Updated On : {{Cookie.updated_at}}</p> 
+    </div>
+    <div class="show"><a href="/cookie/update/{{Cookie.id}}">Edit</a> | <a href="/cookie/delete/{{Cookie.id}}">Delete</a></div>
+</body>
+</html>

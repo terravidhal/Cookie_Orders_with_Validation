@@ -1,0 +1,83 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+/***** INDEX.HTML*******/
+h1 {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#container {
+  width: 80%;
+  margin: 40px auto;
+  text-align: center;
+}
+
+tbody tr {
+  cursor: pointer;
+}
+thead tr th {
+  color: orange;
+}
+
+/***** CREATE.HTML*******/
+#containers {
+  width: 40%;
+  margin: 40px auto;
+  border: 1px solid #ced4da;
+  padding-bottom: 10px;
+}
+
+#containers a {
+  margin-left: 22px;
+}
+form {
+  margin: 20px;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.infos {
+  padding: 25px;
+}
+.mssge{
+  color: red;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/***** SHOW_USER.HTML*******/
+.top-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 30px auto;
+}
+.top-title h1 {
+  text-align: initial;
+  margin: 0;
+}
+.contain {
+  border: 1px solid #ced4da;
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+}
+div.show {
+  width: 50%;
+  margin: 20px auto;
+}
+
+/***** UPDATE_USER.HTML*******/
+div.edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 50%;
+  margin-top: 20px;
+}

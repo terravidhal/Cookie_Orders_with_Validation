@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- linking a css Boostrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <!-- linking a css style sheet -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Create</title>
+</head>
+<body>
+    <div class="top-title">
+        <h1> Edit Cookie {{Cookie.id}}</h1>
+        <a href="/cookies">Show All Cookies</a> 
+    </div>
+    <div class="contain">
+        {% with messages = get_flashed_messages() %}
+          {% if messages %}
+            {% for elt in messages %}
+              <p class="mssge">{{elt}}</p>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+        <form action="/edit/{{Cookie.id}}" method="POST">
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="name_c">User Name</label>
+                {% if session["name_updt"] %}
+                  <input type="text" value="{{ session["name_updt"] }}" class="form-control" name="name_c" id="name_c">
+                {% else %}
+                  <input type="text" value="{{ Cookie.name }}" class="form-control" name="name_c" id="name_c">
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="type_c">Cookie Type</label>
+                {% if session["type_updt"] %}
+                <input type="text" value="{{ session["type_updt"] }}"  class="form-control" name="type_c" id="type_c">
+                {% else %}
+                <input type="text" value="{{ Cookie.type }}"  class="form-control" name="type_c" id="type_c">
+                {% endif %}
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="nboxes_c">Number of Boxes</label>
+                {% if session["nboxes_updt"] %}
+                <input type="number" value="{{ session["nboxes_updt"] }}"  class="form-control" name="nboxes_c" id="nboxes_c">
+                {% else %}
+                <input type="number" value="{{ Cookie.num_of_boxes }}"  class="form-control" name="nboxes_c" id="nboxes_c">
+                {% endif %}
+              </div>
+            </div>
+            <div class="edit">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="/cookie/show/{{Cookie.id}}">Show Cookie</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
