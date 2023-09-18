@@ -93,20 +93,21 @@ class Cookies:
     
 
     # VALIDATE UNIQUE USER NAME PAGE UPDATE
-    # @classmethod
-    # def is_unique_user_update(cls, data):
-    #     query = "SELECT name FROM cookies;"
-    #     results = connectToMySQL(cls.DB).query_db(query, data)
-    #     is_valid = True
-    #     last_value_name = data["name"]
-    #     for elt in results:
-    #         #print(elt)  
-    #         if elt["name"] == data["name"]:
-    #             flash("user name already exists")
-    #             is_valid = False
-    #     if last_value_name == data["name"]: # data[name] ici, nouvelle valeur submit
-    #         is_valid = True
+    @classmethod
+    def is_unique_user_update(cls, data, cookie):
+        query = "SELECT name FROM cookies;"
+        results = connectToMySQL(cls.DB).query_db(query, data)
+        is_valid = True
+        last_value_name = cookie.name
+        new_value_name = data["name"] 
+        for elt in results:
+            #print(elt)  
+            if elt["name"] == data["name"]:
+                flash("user name already exists")
+                is_valid = False
+        if last_value_name == new_value_name: 
+            is_valid = True
                
-    #     return is_valid
+        return is_valid
     
     

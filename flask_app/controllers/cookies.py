@@ -66,8 +66,12 @@ def update(cookie_id):
         'nboxes': request.form['nboxes_c'],
         'id': cookie_id,
     }
+     
+   
+    data_id = {'id': cookie_id}
+    cookie = Cookies.get_one(data_id)
 
-    if not Cookies.validate_cookie_infos(data) or not Cookies.is_unique_user(data) : # ADD 'VALIDATE' METHOD COOKIES_INFOS AND UNIQUE USER 
+    if not Cookies.validate_cookie_infos(data) or not Cookies.is_unique_user_update(data, cookie) : # ADD 'VALIDATE' METHOD COOKIES_INFOS AND UNIQUE USER 
 
         session["name_updt"] = request.form["name_c"]
         session["type_updt"] = request.form["type_c"]
